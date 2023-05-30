@@ -11,13 +11,13 @@ db.plantas.find() OU db.plantas.find().count() para contar o número de registos
 QUERIES
 1: db.plantas.find().count()
 2: db.plantas.find({Freguesia: "São Domingos de Rana"}).count()
-3: db.plantas.distinct("Freguesia").sort()
-4: db.plantas.aggregate([{$group : {_id: "$Freguesia", count: {$sum:1}}}])
-5: db.plantas.aggregate([{$group : {_id: "$Espécie", count: {$sum:1}}}])
+3: db.plantas.distinct("Freguesia").sort() ou db.plantas.distinct("Freguesia").sort().filter(f => f !== '') (caso não se queira incluir a string vazia nos resultados)
+4: db.plantas.aggregate([{$group : {_id: "$Freguesia", count: {$sum: 1}}}])
+5: db.plantas.aggregate([{$group : {_id: "$Espécie", count: {$sum: 1}}}])
 
 INSTRUÇÕES PARA EXECUTAR
 A aplicação está dividida em 2 componentes que são a API e a Interface. Para correr a aplicação, devemos ter primeiramente configurada a base de dados.
 Em seguida, dentro da pasta API, que se encontra na pasta ex1, e dentro da pasta Interface, que se encontra na pasta ex2, devemos executar o seguinte comando: npm i --save
 Este comando permite instalar os packages necessários à execução da aplicação. 
 
-Para ligar os servidores, executamos nas mesmas pastas o comando: npm start
+Para ligar os servidores, executamos em cada pasta referida acima o comando: npm start
