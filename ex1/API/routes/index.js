@@ -50,7 +50,7 @@ router.post("/plantas", (req, res) => {
 })
 
 
-router.post("/plantas/:id", (req, res) => {
+router.delete("/plantas/:id", (req, res) => {
   Planta.deletePlanta(req.params.id)
     .then(data => res.status(200).json(data))
     .catch(err => res.status(523).json({error: err, message: "Não consegui remover a planta."}))
